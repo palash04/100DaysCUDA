@@ -22,7 +22,7 @@ int main() {
     // Now copy the value from host address to gpu allocated address which is stored in d_a
     // cpu to gpu
     cudaMemcpy(d_a, &h_a, sizeof(int), cudaMemcpyHostToDevice);
-    //std::cout << "Value d_a is pointing to: " << *d_a << std::endl;   // segmaCannot directly dereference gpu address from cpu
+    //std::cout << "Value d_a is pointing to: " << *d_a << std::endl;   // segmentation fault - Cannot directly dereference gpu address from cpu
 
     // gpu to cpu
     cudaMemcpy(&h_result, d_a, sizeof(int), cudaMemcpyDeviceToHost);
